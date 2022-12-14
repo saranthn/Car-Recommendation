@@ -1,0 +1,39 @@
+<html>
+  <link rel="stylesheet" href="login.css">
+  <head>
+    <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo" onclick="window.open('index.html', '_self');">
+        <a>Car Finder</a>
+      </div>
+      <ul class="nav-links">
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+        </div>
+      </ul>
+    </nav>
+  </head>
+  <body>
+    <center>
+      <div class="main">
+        <div class="signup">
+          <label for="chk" aria-hidden="true">Sign Up</label>
+          <center>
+            <span class="login">Create an account by entering our details</span>
+          </center>
+          <input type="text" name="First Name" placeholder="First Name" id="first_name" required="">
+          <input type="text" name="Last Name" placeholder="Last Name" id="last_name" required="">
+          <input type="text" name="username" placeholder="User name" id="username" required="">
+          <input type="text" name="email" placeholder="Email" id="email" required="">
+          <input type="password" name="password" placeholder="Password" id="password" required="">
+          <button onclick="signup()">Sign Up</button>
+          <center>
+            <span class="login">Already Have an accpunt ? <a href="login.html">Sign In</a>
+            </span>
+          </center>
+        </div>
+      </div>
+    </center>
+  </body>
+  <script src="main.js"></script>
+</html>
