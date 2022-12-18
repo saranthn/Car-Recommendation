@@ -56,31 +56,27 @@
               <label for="price">Price Range:</label>
               <select id="price" name="price">
                 <option selected value=""></option>
-                <option value="1">
-                  0-1000 </option>
-                <option value="2">1000-3000</option>
-                <option value="3">3000-5000</option>
-                <option value="4">5000-10000</option>
+                <option value="0-1000">0-1000 </option>
+                <option value="1000-3000">1000-3000</option>
+                <option value="3000-5000">3000-5000</option>
+                <option value="5000-10000">5000-10000</option>
               </select>
             </div>
             <div class="block">
               <label for="style">Style:</label>
-              <select id="style" name="style">
+              <input list="style" id="styleInput" name="style">
+              <datalist id="style">
                 <option selected value=""></option>
-                <option value="Sedan">Sedan</option>
-                <option value="Hatchback">Hatchback</option>
-                <option value="SUV">SUV</option>
-                <option value="Convertible">Convertible</option>
-              </select>
+              </datalist>
             </div>
             <div class="block">
               <label for="transmission">Transmission Type:</label>
               <select id="transmission" name="transmission">
                 <option selected value=""></option>
-                <option value="Automatic">Automatic</option>
-                <option value="Manual">Manual</option>
-                <option value="Automated Manual">Automated Manual</option>
-                <option value="Direct Drive">Direct Drive</option>
+                <option value="MANUAL">MANUAL</option>
+                <option value="AUTOMATIC">AUTOMATIC</option>
+                <option value="AUTOMATED_MANUAL">AUTOMATED_MANUAL</option>
+                <option value="DIRECT_DRIVE">DIRECT_DRIVE</option>
               </select>
             </div>
           </center>
