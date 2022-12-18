@@ -119,16 +119,16 @@ apigClientFactory.newClient = function (config) {
     };
     
     
-    apigClient.searchGet = function (params, body, additionalParams) {
+    apigClient.searchGet = function (params, body, additionalParams, l) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, ['model', 'transmission', 'make', 'price'], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, l, ['body']);
         
         var searchGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/search').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['model', 'transmission', 'make', 'price']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, l),
             body: body
         };
         

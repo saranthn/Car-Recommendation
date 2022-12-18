@@ -1,52 +1,5 @@
 // JavaScript
 
-const makeInput = document.getElementById('makeInput');
-var modelInput = document.getElementById('modelInput');
-var modelDatalist = document.getElementById('model');
-
-makeInput.addEventListener('change', e => {
-  // Enable the model input and year select element
-  modelInput.disabled = false;
-
-  // Clear the model input and year select element
-  modelDatalist.innerHTML = '';
-
-  // Fill the model input and year select element based on the selected make
-  fillModels(e.target.value);
-});
-
-function fillModels(make) {
-  // Get the list of models for the selected make
-  var models = getModelsForMake(make);
-
-  if (models === null || models.length === 0) {
-  	modelInput.disabled = true;
-  }
-
-  // Loop through the models and add an option element for each model
-  models.forEach(model => {
-    var option = document.createElement('option');
-    option.setAttribute('value', model);
-    option.innerHTML = model;
-    modelDatalist.appendChild(option);
-  });
-}
-
-function getModelsForMake(make) {
-  // Return the list of models for the selected make
-  // You can use a switch statement or an object with key-value pairs to map make to models
-  // For example:
-  switch (make) {
-    case 'BMW':
-      return ['X1', 'X3', 'X5'];
-    case 'Audi':
-      return ['A3', 'A4', 'A6'];
-    // Add case statements for other makes
-    default:
-      return [];
-  }
-}
-
 function loadHomePage() {
 	const list = "BMW, Audi, FIAT, Mercedes-Benz, Chrysler, Nissan, Volvo, Mazda, Mitsubishi, Ferrari, Alfa Romeo, Toyota, McLaren, Maybach, Pontiac, Porsche, Saab, GMC, Hyundai, Plymouth, Honda, Oldsmobile, Suzuki, Ford, Cadillac, Kia, Bentley, Chevrolet, Dodge, Lamborghini, Lincoln, Subaru, Volkswagen, Spyker, Buick, Acura, Rolls-Royce, Maserati, Lexus, Aston Martin, Land Rover, Lotus, Infiniti, Scion, Genesis, HUMMER, Tesla, Bugatti";
 	const carList = list.split(', ');
@@ -210,7 +163,6 @@ function loadCarPage() {
 
 	let carId = params.get("carId");
 	console.log(carId);
-	carId = 'C12700';
 
 	apigClient.descriptionGet({ carID: carId})
     	.then(function(result) {
@@ -222,8 +174,7 @@ function loadCarPage() {
 			      <div>
 			        <div class="flex-container top">
 			          <div class="flex-child polaroid">
-			          <!-- <img class="img" src=${result['data']['carurl']} alt="" /> -->
-			          <img class="img" src="Assets/car4.jpeg" alt="" />
+			          <img class="img" src=${result['data']['carurl']} alt="" />
 			            <div class="flex-container">
 			              <div class="flex-child green"> ${result['data']['doors']} </div>
 			              <div class="flex-child green"> ${result['data']['transmission_type']} </div>
@@ -262,90 +213,166 @@ function loadSearchResults() {
 	// Use the URLSearchParams interface to retrieve the query parameters
 	const params = new URLSearchParams(url.search);
 
-	const make = params.get("make");
-	const price = params.get("price");
-	const style = params.get("style");
-	const transmissionType = params.get("transmissionType");
+	const make = params.get("make") ?? "";
+	const price = params.get("price") ?? "";
+	const style = params.get("style") ?? "";
+	const transmissionType = params.get("transmissionType") ?? "";
+	const model = params.get("model") ?? "";
 
-	console.log("Make:"+make);
-	console.log("Price:"+price);
-	console.log("Style:"+style);
-	console.log("Transmission Type:"+transmissionType);
+	const obj = {};
+	var list = [];
+
+	if (make !== "") {
+	  obj.make = make;
+	  list.push('make');
+	}
+
+	if (price !== "") {
+	  obj.price = price;
+	  list.push('price');
+	}
+
+	if (style !== "") {
+	  obj.style = style;
+	  // list.push('style');
+	}
+
+	if (transmissionType !== "") {
+	  obj.transmission = transmissionType;
+	  list.push('transmission');
+	}
+
+	if (model !== "") {
+	  obj.model = model;
+	  list.push('model');
+	}
+	console.log(obj);
 
 	// GET request to search cars based on given parameters
 
 	let search_results_row1 = document.getElementById("result-row1");
 	let search_results_row2 = document.getElementById("result-row2");
+	let search_results_row3 = document.getElementById("result-row3");
 	let count = 1
 
-	let results = [
-		{
-			carId: '1',
-			imgUrl: 'Assets/car1.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		},
-		{
-			carId: '2',
-			imgUrl: 'Assets/car2.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		}
-	]
+	var apigClient = apigClientFactory.newClient();
 
-	results.forEach(function myFunction(result) {
-		if (count>4)
-		{
-			let x = 25*(count-4);
-			search_results_row2.style.width = x+"%";
-			search_results_row2.innerHTML += 
-				`<div class="flex-child polaroid" id=${result.carId}>
-					<a>
-						<img class="img" src=${result.imgUrl} alt="" onclick="openCarPage(${result.carId})"/>
-					</a>
-					<div class="flex-container">
-						<div class="flex-child green"> ${result.capacity} </div>
-						<div class="flex-child green"> ${result.transmissionType} </div>
-						<div class="flex-child green"> ${result.price} </div>
-						<div class="flex-child green">
-							<i class="bi-heart" onclick="toggleIcon(this)"></i>
-						</div>
-					</div>
-				</div>`
-		}
-		else
-		{
-			let x = 25*(count);
-			search_results_row1.style.width = x+"%";
-			search_results_row1.innerHTML += 
-				`<div class="flex-child polaroid" id=${result.carId}>
-					<a>
-						<img class="img" src=${result.imgUrl} alt="" onclick="openCarPage(${result.carId})"/>
-					</a>
-					<div class="flex-container">
-						<div class="flex-child green"> ${result.capacity} </div>
-						<div class="flex-child green"> ${result.transmissionType} </div>
-						<div class="flex-child green"> ${result.price} </div>
-						<div class="flex-child green">
-							<i class="bi-heart" onclick="toggleIcon(this)"></i>
-						</div>
-					</div>
-				</div>`
-		}
-		count++;
-		
-	})
+	apigClient.searchGet(obj, {}, {}, list)
+    	.then(function(results) {
+    		console.log("success");
+    		console.log(results);
+    		results['data'].forEach(function myFunction(result) {
+    			if (count>8)
+				{
+					let x = 25*(count-8);
+					search_results_row3.style.width = x+"%";
+					search_results_row3.innerHTML += 
+						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+							<a>
+								<img class="img" src=${result['carurl']} alt="" />
+							</a>
+							<div class="flex-container">
+								<div class="flex-child green"> ${result['doors']} </div>
+								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['msrp']} </div>
+								<div class="flex-child green">
+									<i class="bi-heart" onclick="toggleIcon(this)"></i>
+								</div>
+							</div>
+						</div>`
+				}
+				else if (count>4)
+				{
+					let x = 25*(count-4);
+					search_results_row2.style.width = x+"%";
+					search_results_row2.innerHTML += 
+						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+							<a>
+								<img class="img" src=${result['carurl']} alt="" />
+							</a>
+							<div class="flex-container">
+								<div class="flex-child green"> ${result['doors']} </div>
+								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['msrp']} </div>
+								<div class="flex-child green">
+									<i class="bi-heart" onclick="toggleIcon(this)"></i>
+								</div>
+							</div>
+						</div>`
+				}
+				else
+				{
+					let x = 25*(count);
+					search_results_row1.style.width = x+"%";
+					search_results_row1.innerHTML += 
+						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+							<a>
+								<img class="img" src=${result['carurl']} alt="" />
+							</a>
+							<div class="flex-container">
+								<div class="flex-child green"> ${result['doors']} </div>
+								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['msrp']} </div>
+								<div class="flex-child green">
+									<i class="bi-heart" onclick="toggleIcon(this)"></i>
+								</div>
+							</div>
+						</div>`
+				}
+				count++;	
+			})
 
+    	}).catch(function(result){
+    		console.log("failed")
+    		console.log(result);
+    	});
 }
 
 function search() {
-	const make = document.getElementById('make').value;
+	const make = document.getElementById('makeInput').value;
+	const model = document.getElementById('modelInput').value;
 	const price = document.getElementById('price').value;
-	const style = document.getElementById('style').value;
+	const style = document.getElementById('styleInput').value;
 	const transmissionType = document.getElementById('transmission').value;
-	const url = `search.html?make=${make}&price=${price}&style=${style}&transmissionType=${transmissionType}`;
+
+	let url = `search.html?`;
+	let count = 0;
+	if(make !== null && make !== "") {
+		url+=`make=${make}`;
+		count++;
+	}
+	if(price !== null && price !== "") {
+		if (count>0)
+		{
+			url+= `&`;
+		}
+		url+=`price=${price}`
+		count++;
+	}
+	if(style !== null && style !== "") {
+		if (count>0)
+		{
+			url+= `&`;
+		}
+		url+=`style=${style}`;
+		count++;
+	}
+	if(transmissionType !== null && transmissionType !== "") {
+		if (count>0)
+		{
+			url+= `&`;
+		}
+		url+=`transmissionType=${transmissionType}`;
+		count++;
+	}
+	if(model !== null && model !== "") {
+		if (count>0)
+		{
+			url+= `&`;
+		}
+		url+=`model=${model}`;
+		count++;
+	}
 
 	// Open the webpage in the same tab of the browser
 	window.open(url, "_self");
