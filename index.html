@@ -3,7 +3,6 @@
     <title>Car Finder</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
     <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
     <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
     <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
@@ -40,18 +39,21 @@
       <h2> Looking for new cars, Select your preferences below </h2>
         <div class="top">
           <center>
-            <input id="search" type="text" name="q" placeholder="Search for Cars..">
-          </center>
-        </div>
-        <div class="top">
-          <center>
-            <div class="block">
               <label for="make">Make:</label>
               <input list="make" id="makeInput" name="make">
               <datalist id="make">
                 <option selected value=""></option>
               </datalist>
-            </div>
+
+              <label for="model">Model:</label>
+              <input list="model" id="modelInput" name="model" disabled>
+              <datalist id="model">
+                <option selected value=""></option>
+              </datalist>
+          </center>
+        </div>
+        <div class="top">
+          <center>
             <div class="block">
               <label for="price">Price Range:</label>
               <select id="price" name="price">
@@ -104,4 +106,5 @@
       </div>
     </div>
   </body>
+  <script src="main.js"></script>
 </html>
