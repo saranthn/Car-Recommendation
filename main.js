@@ -120,58 +120,60 @@ function loadPopularCars() {
 }
 
 function loadCarPage() {
+
+	var apigClient = apigClientFactory.newClient();
+
 	const url = new URL(window.location.href);
 
 	// Use the URLSearchParams interface to retrieve the query parameters
 	const params = new URLSearchParams(url.search);
 
-	const carId = params.get("carId");
-
+	let carId = params.get("carId");
 	console.log(carId);
+	carId = 'C12700';
 
-	//GET request to get car details
-	let result = {
-		carId: '1',
-		make: 'Porsche',
-		imgUrl: 'Assets/car1.jpeg',
-		capacity: '2',
-		transmissionType: 'Manual',
-		price: '$30,000',
-		model: '4door',
-		mpg: '25',
-		fuel: 'Diesel',
-		style: 'SUV',
-		category: 'Luxury'
-	}
-	let car_description_results = document.getElementById("car-description");
-	car_description_results.innerHTML += 
-		`<h2> ${result.make} </h2>
-	      <div>
-	        <div class="flex-container top">
-	          <div class="flex-child polaroid">
-	            <img class="img" src=${result.imgUrl} alt="" />
-	            <div class="flex-container">
-	              <div class="flex-child green"> ${result.capacity} </div>
-	              <div class="flex-child green"> ${result.transmissionType} </div>
-	              <div class="flex-child green"> ${result.price} </div>
-	              <div class="flex-child green">
-	                <i class="bi-heart" onclick="toggleIcon(this)"></i>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="flex-child wrapper">
-	            <div class="flex-columns-child"> Make: ${result.make} </div>
-	            <div class="flex-columns-child"> Model: ${result.model} </div>
-	            <div class="flex-columns-child"> Price: ${result.price} </div>
-	            <div class="flex-columns-child"> Transmission: ${result.transmissionType} </div>
-	            <div class="flex-columns-child"> MPG: ${result.mpg} </div>
-	            <div class="flex-columns-child"> Fuel Type: ${result.fuel} </div>
-	            <div class="flex-columns-child"> Style: ${result.style} </div>
-	            <div class="flex-columns-child"> Market Category: ${result.category} </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>`
+	apigClient.descriptionGet({ carID: carId})
+    	.then(function(result) {
+    		console.log("success");
+    		console.log(result['data']);
+    		let car_description_results = document.getElementById("car-description");
+			car_description_results.innerHTML += 
+				`<h2> ${result['data']['make']} </h2>
+			      <div>
+			        <div class="flex-container top">
+			          <div class="flex-child polaroid">
+			          <!-- <img class="img" src=${result['data']['carurl']} alt="" /> -->
+			          <img class="img" src="Assets/car4.jpeg" alt="" />
+			            <div class="flex-container">
+			              <div class="flex-child green"> ${result['data']['doors']} </div>
+			              <div class="flex-child green"> ${result['data']['transmission_type']} </div>
+			              <div class="flex-child green"> ${result['data']['msrp']} </div>
+			              <div class="flex-child green">
+			                <i class="bi-heart" onclick="toggleIcon(this)"></i>
+			              </div>
+			            </div>
+			          </div>
+			          <div class="flex-child wrapper">
+			            <div class="flex-columns-child"> Make: ${result['data']['make']} </div>
+			            <div class="flex-columns-child"> Model: ${result['data']['model']} </div>
+			            <div class="flex-columns-child"> Wheel Drive: ${result['data']['driven_wheels']} </div>
+			            <div class="flex-columns-child"> Cylinders: ${result['data']['engine_cylinders']} </div>
+			            <div class="flex-columns-child"> HorsePower: ${result['data']['engine_hp']} </div>
+			            <div class="flex-columns-child"> Fuel Type: ${result['data']['fuel_type']} </div>
+			            <div class="flex-columns-child"> Style: ${result['data']['vehicle_style']} </div>
+			            <div class="flex-columns-child"> Size: ${result['data']['vehicle_size']} </div>
+			            <div class="flex-columns-child"> Market Category: ${result['data']['market_catogory']} </div>
+			            <div class="flex-columns-child"> Mileage: ${result['data']['mpg']} </div>
+			            <div class="flex-columns-child"> Highway Mileage: ${result['data']['highway_mpg']} </div>
+			          </div>
+			        </div>
+			      </div>
+			    </div>`;
+
+    	}).catch(function(result){
+    		console.log("failed")
+    		console.log(result);
+    	});
 }
 
 function loadSearchResults() {
