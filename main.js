@@ -1,4 +1,20 @@
 function loadHomePage() {
+	const list = "BMW, Audi, FIAT, Mercedes-Benz, Chrysler, Nissan, Volvo, Mazda, Mitsubishi, Ferrari, Alfa Romeo, Toyota, McLaren, Maybach, Pontiac, Porsche, Saab, GMC, Hyundai, Plymouth, Honda, Oldsmobile, Suzuki, Ford, Cadillac, Kia, Bentley, Chevrolet, Dodge, Lamborghini, Lincoln, Subaru, Volkswagen, Spyker, Buick, Acura, Rolls-Royce, Maserati, Lexus, Aston Martin, Land Rover, Lotus, Infiniti, Scion, Genesis, HUMMER, Tesla, Bugatti";
+	const carList = list.split(', ');
+
+	const datalist = document.getElementById('make');
+
+	// Loop through the car list
+	carList.forEach(car => {
+	  // Create an option element for each car
+	  const option = document.createElement('option');
+	  option.setAttribute('value', car);
+	  option.innerHTML = car;
+
+	  // Add the option element to the select element
+	  datalist.appendChild(option);
+	});
+
 	loadRecommendations()
 	loadPopularCars()
 }
