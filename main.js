@@ -261,7 +261,8 @@ function loadSearchResults() {
     	.then(function(results) {
     		console.log("success");
     		console.log(results);
-    		results['data'].forEach(function myFunction(result) {
+    		output = results['data'].slice(0,10);
+    		output.forEach(function myFunction(result) {
     			if (count>8)
 				{
 					let x = 25*(count-8);
