@@ -415,7 +415,21 @@ function login() {
 function logout() {
 	
 	// Remove session variables?? Cookies? Cognito?
-    window.open('login.html', '_self');
+	const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
+
+
+    const params = {
+      AccessToken: 'USER_ACCESS_TOKEN',
+    };
+
+    try {
+      await cognitoIdentityServiceProvider.globalSignOut(params).promise();
+      console.log('User signed out');
+    } catch (error) {
+      console.error(error);
+    }
+
+	window.open('login.html', '_self');
 }
 
 function signup() {
