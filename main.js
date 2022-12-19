@@ -413,11 +413,13 @@ function login() {
 }
 
 const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
+AWS.config.region = 'us-east-1';
+
 
   const button = document.getElementById('sign-out-button');
   button.addEventListener('click', async function() {
     const params = {
-      AccessToken: 'USER_ACCESS_TOKEN',
+      AccessToken: '9e8602b7-1e2b-4774-98fc-8046abea3cf7',
     };
 
     try {
