@@ -103,4 +103,10 @@
  .bi-heart:hover {
      color: palevioletred;
 }
+
+input.larger
+{
+    width: 10px;
+    height: 10px;
+}
  
