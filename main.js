@@ -419,20 +419,10 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
 });
 
 
-  const button = document.getElementById('sign-out-button');
-  button.addEventListener('click', async function() {
-    const params = {
-      AccessToken: '9e8602b7-1e2b-4774-98fc-8046abea3cf7',
-    };
-
-    try {
-      // await cognitoIdentityServiceProvider.globalSignOut(params).promise();
-      console.log('User signed out');
-      window.open('login.html', '_self');
-    } catch (error) {
-      console.error(error);
-    }
-  });
+const button = document.getElementById('sign-out-button');
+button.addEventListener('click', async function() {
+	window.location.replace('https://carfinder.auth.us-east-1.amazoncognito.com/logout?client_id=3ibqh30l0u9h5n3n3n56q0d6q0&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://d19fq1agwipela.cloudfront.net/index.html');
+});
 
 
 function signup() {
