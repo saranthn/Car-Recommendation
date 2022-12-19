@@ -412,12 +412,10 @@ function login() {
     }
 }
 
-function logout() {
-	
-	// Remove session variables?? Cookies? Cognito?
-	const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
+const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
 
-
+  const button = document.getElementById('sign-out-button');
+  button.addEventListener('click', async function() {
     const params = {
       AccessToken: 'USER_ACCESS_TOKEN',
     };
@@ -428,9 +426,8 @@ function logout() {
     } catch (error) {
       console.error(error);
     }
+  });
 
-	window.open('login.html', '_self');
-}
 
 function signup() {
 	const username = document.getElementById('username').value;
