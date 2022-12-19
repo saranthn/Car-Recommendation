@@ -414,6 +414,9 @@ function login() {
 
 const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
 AWS.config.region = 'us-east-1';
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: 'us-east-1_DirUZXt2s'
+});
 
 
   const button = document.getElementById('sign-out-button');
