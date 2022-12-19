@@ -426,8 +426,9 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
     };
 
     try {
-      await cognitoIdentityServiceProvider.globalSignOut(params).promise();
+      // await cognitoIdentityServiceProvider.globalSignOut(params).promise();
       console.log('User signed out');
+      window.open('login.html', '_self');
     } catch (error) {
       console.error(error);
     }
