@@ -476,3 +476,80 @@ function toggleIcon(x, carid) {
 	//TODO: PUT request to update items in wishlist or favorites
 }
 
+function loadWishlist() {
+	let search_results_row1 = document.getElementById("result-row1");
+	let search_results_row2 = document.getElementById("result-row2");
+	let search_results_row3 = document.getElementById("result-row3");
+	let count = 1
+	var apigClient = apigClientFactory.newClient();
+	apigClient.wishlistGet({'Authorization':  token})
+	.then(function(results) {
+		console.log("success");
+		console.log(results);
+		output = results['data'].slice(0,10);
+		output.forEach(function myFunction(result) {
+			if (count>8)
+			{
+				let x = 25*(count-8);
+				search_results_row3.style.width = x+"%";
+				search_results_row3.innerHTML += 
+					`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+						<a>
+							<img class="img" src=${result['carurl']} alt="" />
+						</a>
+						<div class="flex-container">
+							<div class="flex-child green"> ${result['doors']} </div>
+							<div class="flex-child green"> ${result['transmission_type']} </div>
+							<div class="flex-child green"> ${result['msrp']} </div>
+							<div class="flex-child green">
+								<i class="bi-heart" onclick="toggleIcon(this)"></i>
+							</div>
+						</div>
+					</div>`
+			}
+			else if (count>4)
+			{
+				let x = 25*(count-4);
+				search_results_row2.style.width = x+"%";
+				search_results_row2.innerHTML += 
+					`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+						<a>
+							<img class="img" src=${result['carurl']} alt="" />
+						</a>
+						<div class="flex-container">
+							<div class="flex-child green"> ${result['doors']} </div>
+							<div class="flex-child green"> ${result['transmission_type']} </div>
+							<div class="flex-child green"> ${result['msrp']} </div>
+							<div class="flex-child green">
+								<i class="bi-heart" onclick="toggleIcon(this)"></i>
+							</div>
+						</div>
+					</div>`
+			}
+			else
+			{
+				let x = 25*(count);
+				search_results_row1.style.width = x+"%";
+				search_results_row1.innerHTML += 
+					`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+						<a>
+							<img class="img" src=${result['carurl']} alt="" />
+						</a>
+						<div class="flex-container">
+							<div class="flex-child green"> ${result['doors']} </div>
+							<div class="flex-child green"> ${result['transmission_type']} </div>
+							<div class="flex-child green"> ${result['msrp']} </div>
+							<div class="flex-child green">
+								<i class="bi-heart" onclick="toggleIcon(this)"></i>
+							</div>
+						</div>
+					</div>`
+			}
+			count++;	
+		})
+
+	}).catch(function(result){
+		console.log("failed")
+		console.log(result);
+	});
+}

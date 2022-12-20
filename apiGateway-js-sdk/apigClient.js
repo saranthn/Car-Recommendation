@@ -289,7 +289,7 @@ apigClientFactory.newClient = function (config) {
         var wishlistGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/wishlist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            headers: apiGateway.core.utils.parseParametersToObject(params, ['Authorization']),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
