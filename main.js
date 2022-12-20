@@ -154,7 +154,7 @@ function loadCarPage() {
 			            <div class="flex-container">
 			              <div class="flex-child green"> ${result['data']['make']} </div>
 			              <div class="flex-child green"> ${result['data']['model']} </div>
-			              <div class="flex-child green"> ${result['data']['msrp']} </div>
+			              <div class="flex-child green"> "$"+${result['data']['msrp']} </div>
 			              <div class="flex-child green">
 			                <i class="bi-heart" id=${result['data']['carurl']} onclick="toggleIcon(this, this.id)"></i>
 			              </div>
