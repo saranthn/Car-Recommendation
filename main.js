@@ -1,10 +1,13 @@
 // JavaScript
 
+
 function loadHomePage() {
 	const list = "BMW, Audi, FIAT, Mercedes-Benz, Chrysler, Nissan, Volvo, Mazda, Mitsubishi, Ferrari, Alfa Romeo, Toyota, McLaren, Maybach, Pontiac, Porsche, Saab, GMC, Hyundai, Plymouth, Honda, Oldsmobile, Suzuki, Ford, Cadillac, Kia, Bentley, Chevrolet, Dodge, Lamborghini, Lincoln, Subaru, Volkswagen, Spyker, Buick, Acura, Rolls-Royce, Maserati, Lexus, Aston Martin, Land Rover, Lotus, Infiniti, Scion, Genesis, HUMMER, Tesla, Bugatti";
 	const carList = list.split(', ');
 
 	const datalist = document.getElementById('make');
+	const url = new URL(window.location.href);
+	console.log(url);
 
 	// Loop through the car list
 	carList.forEach(car => {
@@ -60,7 +63,7 @@ function loadRecommendations() {
 								<div class="flex-child green"> ${result['transmission_type']} </div>
 								<div class="flex-child green"> ${result['msrp']} </div>
 								<div class="flex-child green">
-									<i class="bi-heart" onclick="toggleIcon(this)"></i>
+									<i class="bi-heart" onclick="toggleIcon(this, ${result['carid']})"></i>
 								</div>
 							</div>
 						</div>`
@@ -149,7 +152,7 @@ function loadCarPage() {
 			              <div class="flex-child green"> ${result['data']['transmission_type']} </div>
 			              <div class="flex-child green"> ${result['data']['msrp']} </div>
 			              <div class="flex-child green">
-			                <i class="bi-heart" onclick="toggleIcon(this)"></i>
+			                <i class="bi-heart" id=${result['data']['carurl']} onclick="toggleIcon(this, this.id)"></i>
 			              </div>
 			            </div>
 			          </div>
@@ -444,9 +447,22 @@ function signup() {
 }
 
 
-function toggleIcon(x) {
+function toggleIcon(x, carid) {
 	x.classList.toggle("bi-heart-fill");
 	x.classList.toggle("bi-heart");
+
+	var apigClient = apigClientFactory.newClient();
+
+	apigClient.likeGet({ carID: carid})
+    	.then(function(result) {
+    		console.log("success");
+    		console.log(result);
+
+    	}).catch(function(result){
+    		console.log("failed")
+    		console.log(result);
+    	});
+
 
 	//TODO: PUT request to update items in wishlist or favorites
 }
