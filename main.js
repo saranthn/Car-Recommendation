@@ -146,14 +146,14 @@ function loadCarPage() {
     		console.log(result['data']);
     		let car_description_results = document.getElementById("car-description");
 			car_description_results.innerHTML += 
-				`<h2> ${result['data']['make']} </h2>
+				`<h2> ${result['data']['make']} ${result['data']['model']} </h2>
 			      <div>
 			        <div class="flex-container top">
 			          <div class="flex-child polaroid">
 			          <img class="img" src=${result['data']['carurl']} alt="" />
 			            <div class="flex-container">
-			              <div class="flex-child green"> ${result['data']['doors']} </div>
-			              <div class="flex-child green"> ${result['data']['transmission_type']} </div>
+			              <div class="flex-child green"> ${result['data']['make']} </div>
+			              <div class="flex-child green"> ${result['data']['model']} </div>
 			              <div class="flex-child green"> ${result['data']['msrp']} </div>
 			              <div class="flex-child green">
 			                <i class="bi-heart" id=${result['data']['carurl']} onclick="toggleIcon(this, this.id)"></i>
@@ -165,12 +165,11 @@ function loadCarPage() {
 			            <div class="flex-columns-child"> Model: ${result['data']['model']} </div>
 			            <div class="flex-columns-child"> Wheel Drive: ${result['data']['driven_wheels']} </div>
 			            <div class="flex-columns-child"> Cylinders: ${result['data']['engine_cylinders']} </div>
-			            <div class="flex-columns-child"> HorsePower: ${result['data']['engine_hp']} </div>
+			            <div class="flex-columns-child"> Horsepower: ${result['data']['engine_hp']} </div>
 			            <div class="flex-columns-child"> Fuel Type: ${result['data']['fuel_type']} </div>
 			            <div class="flex-columns-child"> Style: ${result['data']['vehicle_style']} </div>
 			            <div class="flex-columns-child"> Size: ${result['data']['vehicle_size']} </div>
-			            <div class="flex-columns-child"> Market Category: ${result['data']['market_catogory']} </div>
-			            <div class="flex-columns-child"> Mileage: ${result['data']['mpg']} </div>
+			            <div class="flex-columns-child"> City Mileage: ${result['data']['mpg']} </div>
 			            <div class="flex-columns-child"> Highway Mileage: ${result['data']['highway_mpg']} </div>
 			          </div>
 			        </div>
