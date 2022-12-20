@@ -32,7 +32,7 @@ function loadHomePage() {
 	  styleDatalist.appendChild(opt);
 	});
 
-	loadRecommendations()
+	// loadRecommendations()
 	loadPopularCars()
 }
 
