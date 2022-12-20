@@ -46,6 +46,7 @@ function loadRecommendations() {
 
 	//Call API to retrieve the recommendations for this user
 	var apigClient = apigClientFactory.newClient();
+	let count = 1;
 	let recommendation_results = document.getElementById("recommendation-results");
 	apigClient.recommendationGet({'Authorization':  token})
     	.then(function(results) {
