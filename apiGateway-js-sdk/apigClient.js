@@ -119,16 +119,142 @@ apigClientFactory.newClient = function (config) {
     };
     
     
-    apigClient.searchGet = function (params, body, additionalParams, l) {
+    apigClient.likeGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, l, ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['carID'], ['body']);
+        
+        var likeGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/like').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['carID']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(likeGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.likePut = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['carID'], ['body']);
+        
+        var likePutRequest = {
+            verb: 'put'.toUpperCase(),
+            path: pathComponent + uritemplate('/like').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['carID']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(likePutRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.likeOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var likeOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/like').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(likeOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.popularGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var popularGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/popular').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(popularGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.popularOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var popularOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/popular').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(popularOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.recommendationGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var recommendationGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendation').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendationGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.recommendationOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var recommendationOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendation').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendationOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.searchGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['model', 'transmission', 'make', 'price'], ['body']);
         
         var searchGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/search').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, l),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['model', 'transmission', 'make', 'price']),
             body: body
         };
         
