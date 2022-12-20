@@ -457,7 +457,7 @@ function toggleIcon(x, carid) {
 
 	var apigClient = apigClientFactory.newClient();
 
-	apigClient.likeGet({ carID: carid})
+	apigClient.likeGet({ 'carID': carid, 'Authorization': token})
     	.then(function(result) {
     		console.log("success");
     		console.log(result);
