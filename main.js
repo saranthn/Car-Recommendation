@@ -38,7 +38,7 @@ function loadHomePage() {
 	  styleDatalist.appendChild(opt);
 	});
 
-	// loadRecommendations()
+	loadRecommendations()
 	loadPopularCars()
 }
 
@@ -46,8 +46,9 @@ function loadRecommendations() {
 	console.log("Load Recommendations function called");
 
 	//Call API to retrieve the recommendations for this user
+	var apigClient = apigClientFactory.newClient();
 	let recommendation_results = document.getElementById("recommendation-results");
-	apigClient.recommendationGet()
+	apigClient.recommendationGet({'Authorization':  token})
     	.then(function(results) {
     		console.log("success");
     		console.log(results);
