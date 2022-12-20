@@ -152,6 +152,10 @@ function loadCarPage() {
     		console.log("success");
     		console.log(result['data']);
     		let car_description_results = document.getElementById("car-description");
+			let likecls = "bi-heart";
+			if (result['data']['like_state'].trim() == "True"){
+				likecls = "bi-heart-fill";
+			}
 			car_description_results.innerHTML += 
 				`<h2> ${result['data']['make']} ${result['data']['model']} </h2>
 			      <div>
@@ -163,7 +167,7 @@ function loadCarPage() {
 			              <div class="flex-child green"> ${result['data']['model']} </div>
 			              <div class="flex-child green"> $${result['data']['msrp']} </div>
 			              <div class="flex-child green">
-			                <i class="bi-heart" id=${result['data']['carurl']} onclick="toggleIcon(this, this.id)"></i>
+			                <i class=${likecls} id=${result['data']['carurl']} onclick="toggleIcon(this, this.id)"></i>
 			              </div>
 			            </div>
 			          </div>
