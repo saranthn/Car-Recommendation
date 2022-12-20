@@ -41,7 +41,7 @@ function loadRecommendations() {
 
 	//Call API to retrieve the recommendations for this user
 	let recommendation_results = document.getElementById("recommendation-results");
-	apigClient.recommendationGet(obj, {}, {})
+	apigClient.recommendationGet()
     	.then(function(results) {
     		console.log("success");
     		console.log(results);
@@ -89,7 +89,7 @@ function loadPopularCars() {
 
 	var apigClient = apigClientFactory.newClient();
 
-	apigClient.popularGet(obj, {}, {})
+	apigClient.popularGet()
     	.then(function(results) {
     		console.log("success");
     		console.log(results);
