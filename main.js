@@ -7,12 +7,13 @@ function loadHomePage() {
 	const datalist = document.getElementById('make');
 	const url = new URL(window.location.href);
 	console.log(url);
+	let token = '';
 	try {
 		let a = url['hash'].split('=')[1];
 		token = a.split('&')[0];
 		sessionStorage.setItem("token", token);
 	} catch (error) {
-		let token = sessionStorage.getItem("token");
+		token = sessionStorage.getItem("token");
 	}
 	console.log(token);
 
