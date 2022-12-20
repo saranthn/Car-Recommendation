@@ -62,8 +62,8 @@ function loadRecommendations() {
 								<img class="img" src=${result['carurl']} alt="" />
 							</a>
 							<div class="flex-container">
-								<div class="flex-child green"> ${result['doors']} </div>
-								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['make']} </div>
+								<div class="flex-child green"> ${result['model']} </div>
 								<div class="flex-child green"> ${result['msrp']} </div>
 								<div class="flex-child green">
 									<i class="bi-heart" onclick="toggleIcon(this, ${result['carid']})"></i>
@@ -110,8 +110,8 @@ function loadPopularCars() {
 								<img class="img" src=${result['carurl']} alt="" />
 							</a>
 							<div class="flex-container">
-								<div class="flex-child green"> ${result['doors']} </div>
-								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['make']} </div>
+								<div class="flex-child green"> ${result['model']} </div>
 								<div class="flex-child green"> ${result['msrp']} </div>
 								<div class="flex-child green">
 									<i class="bi-heart" onclick="toggleIcon(this)"></i>
@@ -253,8 +253,8 @@ function loadSearchResults() {
 								<img class="img" src=${result['carurl']} alt="" />
 							</a>
 							<div class="flex-container">
-								<div class="flex-child green"> ${result['doors']} </div>
-								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['make']} </div>
+								<div class="flex-child green"> ${result['model']} </div>
 								<div class="flex-child green"> ${result['msrp']} </div>
 								<div class="flex-child green">
 									<i class="bi-heart" onclick="toggleIcon(this)"></i>
@@ -272,8 +272,8 @@ function loadSearchResults() {
 								<img class="img" src=${result['carurl']} alt="" />
 							</a>
 							<div class="flex-container">
-								<div class="flex-child green"> ${result['doors']} </div>
-								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['make']} </div>
+								<div class="flex-child green"> ${result['model']} </div>
 								<div class="flex-child green"> ${result['msrp']} </div>
 								<div class="flex-child green">
 									<i class="bi-heart" onclick="toggleIcon(this)"></i>
@@ -291,8 +291,8 @@ function loadSearchResults() {
 								<img class="img" src=${result['carurl']} alt="" />
 							</a>
 							<div class="flex-container">
-								<div class="flex-child green"> ${result['doors']} </div>
-								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['make']} </div>
+								<div class="flex-child green"> ${result['model']} </div>
 								<div class="flex-child green"> ${result['msrp']} </div>
 								<div class="flex-child green">
 									<i class="bi-heart" onclick="toggleIcon(this)"></i>
@@ -498,8 +498,8 @@ function loadWishlist() {
 							<img class="img" src=${result['carurl']} alt="" />
 						</a>
 						<div class="flex-container">
-							<div class="flex-child green"> ${result['doors']} </div>
-							<div class="flex-child green"> ${result['transmission_type']} </div>
+							<div class="flex-child green"> ${result['make']} </div>
+							<div class="flex-child green"> ${result['model']} </div>
 							<div class="flex-child green"> ${result['msrp']} </div>
 							<div class="flex-child green">
 								<i class="bi-heart" onclick="toggleIcon(this)"></i>
@@ -517,8 +517,8 @@ function loadWishlist() {
 							<img class="img" src=${result['carurl']} alt="" />
 						</a>
 						<div class="flex-container">
-							<div class="flex-child green"> ${result['doors']} </div>
-							<div class="flex-child green"> ${result['transmission_type']} </div>
+							<div class="flex-child green"> ${result['make']} </div>
+							<div class="flex-child green"> ${result['model']} </div>
 							<div class="flex-child green"> ${result['msrp']} </div>
 							<div class="flex-child green">
 								<i class="bi-heart" onclick="toggleIcon(this)"></i>
@@ -536,8 +536,8 @@ function loadWishlist() {
 							<img class="img" src=${result['carurl']} alt="" />
 						</a>
 						<div class="flex-container">
-							<div class="flex-child green"> ${result['doors']} </div>
-							<div class="flex-child green"> ${result['transmission_type']} </div>
+							<div class="flex-child green"> ${result['make']} </div>
+							<div class="flex-child green"> ${result['model']} </div>
 							<div class="flex-child green"> ${result['msrp']} </div>
 							<div class="flex-child green">
 								<i class="bi-heart" onclick="toggleIcon(this)"></i>
