@@ -121,7 +121,7 @@ apigClientFactory.newClient = function (config) {
     
     apigClient.likeGet = function (params, body, additionalParams, token) {
         if(additionalParams === undefined) { additionalParams = {}; }
-        console.log("Token: ", token);
+        // console.log("Token: ", token);
         console.log("Params: ", params);
         
         apiGateway.core.utils.assertParametersDefined(params, ['carID'], ['body']);
@@ -129,7 +129,7 @@ apigClientFactory.newClient = function (config) {
         var likeGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/like').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            headers: apiGateway.core.utils.parseParametersToObject(params, ['Authorization']),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, ['carID']),
             body: body
         };
