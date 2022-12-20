@@ -102,6 +102,7 @@ function loadPopularCars() {
 	let popular_cars = document.getElementById("popular-cars-results");
 
 	var apigClient = apigClientFactory.newClient();
+	let count=1;
 
 	apigClient.popularGet()
     	.then(function(results) {
