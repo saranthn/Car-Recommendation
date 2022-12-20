@@ -12,7 +12,7 @@ function loadHomePage() {
 		token = a.split('&')[0];
 		sessionStorage.setItem("token", token);
 	} catch (error) {
-		let token = sessionStorage.getItem("token", token);
+		let token = sessionStorage.getItem("token");
 	}
 	console.log(token);
 
