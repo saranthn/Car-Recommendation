@@ -1,5 +1,5 @@
 // JavaScript
-var token="x";
+var token="eyJraWQiOiJvT0g3ZmYyXC9NZVVqc2FqN3MzN291eWQ3QkVTbGU3YXhPVDZWN21uTGpqYz0iLCJhbGciOiJSUzI1NiJ9";
 
 
 function loadHomePage() {
