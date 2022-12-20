@@ -161,16 +161,16 @@ function loadCarPage() {
 			            </div>
 			          </div>
 			          <div class="flex-child wrapper">
-			            <div class="flex-columns-child"> <b>Make:<\b> ${result['data']['make']} </div>
-			            <div class="flex-columns-child"> Model: ${result['data']['model']} </div>
-			            <div class="flex-columns-child"> Wheel Drive: ${result['data']['driven_wheels']} </div>
-			            <div class="flex-columns-child"> Cylinders: ${result['data']['engine_cylinders']} </div>
-			            <div class="flex-columns-child"> Horsepower: ${result['data']['engine_hp']} </div>
-			            <div class="flex-columns-child"> Fuel Type: ${result['data']['fuel_type']} </div>
-			            <div class="flex-columns-child"> Style: ${result['data']['vehicle_style']} </div>
-			            <div class="flex-columns-child"> Size: ${result['data']['vehicle_size']} </div>
-			            <div class="flex-columns-child"> City Mileage: ${result['data']['mpg']} </div>
-			            <div class="flex-columns-child"> Highway Mileage: ${result['data']['highway_mpg']} </div>
+			            <div class="flex-columns-child"> <b>Make:</b> ${result['data']['make']} </div>
+			            <div class="flex-columns-child"> <b>Model:</b> ${result['data']['model']} </div>
+			            <div class="flex-columns-child"> <b>Wheel Drive:</b> ${result['data']['driven_wheels']} </div>
+			            <div class="flex-columns-child"> <b>Cylinders:</b> ${result['data']['engine_cylinders']} </div>
+			            <div class="flex-columns-child"> <b>Horsepower:</b> ${result['data']['engine_hp']} </div>
+			            <div class="flex-columns-child"> <b>Fuel Type:</b> ${result['data']['fuel_type']} </div>
+			            <div class="flex-columns-child"> <b>Style:</b> ${result['data']['vehicle_style']} </div>
+			            <div class="flex-columns-child"> <b>Size:</b> ${result['data']['vehicle_size']} </div>
+			            <div class="flex-columns-child"> <b>City Mileage:</b> ${result['data']['mpg']} </div>
+			            <div class="flex-columns-child"> <b>Highway Mileage:</b> ${result['data']['highway_mpg']} </div>
 			          </div>
 			        </div>
 			      </div>
