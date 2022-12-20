@@ -456,7 +456,7 @@ function toggleIcon(x, carid) {
 	x.classList.toggle("bi-heart");
 
 	var apigClient = apigClientFactory.newClient();
-
+	console.log("In toggle icon")
 	apigClient.likeGet({'carID': carid, 'Authorization': ""})
     	.then(function(result) {
     		console.log("success");
