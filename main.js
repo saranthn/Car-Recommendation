@@ -146,8 +146,8 @@ function loadCarPage() {
 
 	let carId = params.get("carId");
 	console.log(carId);
-
-	apigClient.descriptionGet({ carID: carId})
+	let token = sessionStorage.getItem("token");
+	apigClient.descriptionGet({ carID: carId, 'Authorization':  token})
     	.then(function(result) {
     		console.log("success");
     		console.log(result['data']);

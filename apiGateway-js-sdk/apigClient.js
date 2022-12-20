@@ -91,7 +91,7 @@ apigClientFactory.newClient = function (config) {
         var descriptionGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/description').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            headers: apiGateway.core.utils.parseParametersToObject(params, ['Authorization']),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, ['carID']),
             body: body
         };

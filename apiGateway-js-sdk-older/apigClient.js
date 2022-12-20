@@ -119,8 +119,10 @@ apigClientFactory.newClient = function (config) {
     };
     
     
-    apigClient.likeGet = function (params, body, additionalParams) {
+    apigClient.likeGet = function (params, body, additionalParams, token) {
         if(additionalParams === undefined) { additionalParams = {}; }
+        // console.log("Token: ", token);
+        console.log("Params: ", params);
         
         apiGateway.core.utils.assertParametersDefined(params, ['carID'], ['body']);
         
@@ -217,7 +219,7 @@ apigClientFactory.newClient = function (config) {
         var recommendationGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/recommendation').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, ['Authorization']),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
@@ -278,42 +280,6 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(searchOptionsRequest, authType, additionalParams, config.apiKey);
-    };
-    
-    
-    apigClient.wishlistGet = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
-        
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
-        
-        var wishlistGetRequest = {
-            verb: 'get'.toUpperCase(),
-            path: pathComponent + uritemplate('/wishlist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, ['Authorization']),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
-            body: body
-        };
-        
-        
-        return apiGatewayClient.makeRequest(wishlistGetRequest, authType, additionalParams, config.apiKey);
-    };
-    
-    
-    apigClient.wishlistOptions = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
-        
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
-        
-        var wishlistOptionsRequest = {
-            verb: 'options'.toUpperCase(),
-            path: pathComponent + uritemplate('/wishlist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
-            body: body
-        };
-        
-        
-        return apiGatewayClient.makeRequest(wishlistOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
 
