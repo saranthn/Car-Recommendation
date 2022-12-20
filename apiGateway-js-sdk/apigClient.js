@@ -121,7 +121,7 @@ apigClientFactory.newClient = function (config) {
     
     apigClient.likeGet = function (params, body, additionalParams, token) {
         if(additionalParams === undefined) { additionalParams = {}; }
-        console.log(token);
+        console.log("Token: ", token);
         
         apiGateway.core.utils.assertParametersDefined(params, ['carID'], ['body']);
         
