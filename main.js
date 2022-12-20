@@ -1,4 +1,5 @@
 // JavaScript
+let token="";
 
 
 function loadHomePage() {
@@ -8,6 +9,9 @@ function loadHomePage() {
 	const datalist = document.getElementById('make');
 	const url = new URL(window.location.href);
 	console.log(url);
+	let a = url['hash'].split('=')[1];
+	token = a.split('&')[0];
+	console.log(token);
 
 	// Loop through the car list
 	carList.forEach(car => {
