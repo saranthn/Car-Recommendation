@@ -41,53 +41,36 @@ function loadRecommendations() {
 
 	//Call API to retrieve the recommendations for this user
 	let recommendation_results = document.getElementById("recommendation-results");
-	let results = [
-		{
-			carId: '5',
-			imgUrl: 'Assets/car5.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		},
-		{
-			carId: '6',
-			imgUrl: 'Assets/car6.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		},
-		{
-			carId: '7',
-			imgUrl: 'Assets/car7.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		},
-		{
-			carId: '8',
-			imgUrl: 'Assets/car8.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		}
-	]
+	apigClient.recommendationGet(obj, {}, {})
+    	.then(function(results) {
+    		console.log("success");
+    		console.log(results);
+    		output = results['data'].slice(0,4);
+    		output.forEach(function myFunction(result) {
 
-	results.forEach(function myFunction(result) {
-		recommendation_results.innerHTML += 
-		`<div class="flex-child polaroid" id=${result.carId}">
-			<a>
-				<img class="img" src=${result.imgUrl} alt="" onclick="openCarPage(${result.carId})"/>
-			</a>
-			<div class="flex-container">
-				<div class="flex-child green"> ${result.capacity} </div>
-				<div class="flex-child green"> ${result.transmissionType} </div>
-				<div class="flex-child green"> ${result.price} </div>
-				<div class="flex-child green">
-					<i class="bi-heart" onclick="toggleIcon(this)"></i>
-				</div>
-			</div>
-		</div>`
-	})
+					let x = 25*(count-4);
+					recommendation_results.style.width = x+"%";
+					recommendation_results.innerHTML += 
+						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+							<a>
+								<img class="img" src=${result['carurl']} alt="" />
+							</a>
+							<div class="flex-container">
+								<div class="flex-child green"> ${result['doors']} </div>
+								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['msrp']} </div>
+								<div class="flex-child green">
+									<i class="bi-heart" onclick="toggleIcon(this)"></i>
+								</div>
+							</div>
+						</div>`
+				count++;	
+			})
+
+    	}).catch(function(result){
+    		console.log("failed")
+    		console.log(result);
+    	});
 }
 
 function openCarPage(carId) {
@@ -103,53 +86,39 @@ function loadPopularCars() {
 
 	//Call API to retrieve the popular cars
 	let popular_cars = document.getElementById("popular-cars-results");
-	let results = [
-		{
-			carId: '1',
-			imgUrl: 'Assets/car1.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		},
-		{
-			carId: '2',
-			imgUrl: 'Assets/car2.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		},
-		{
-			carId: '3',
-			imgUrl: 'Assets/car3.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		},
-		{
-			carId: '4',
-			imgUrl: 'Assets/car4.jpeg',
-			capacity: '2',
-			transmissionType: 'Manual',
-			price: '$30,000'
-		}
-	]
 
-	results.forEach(function myFunction(result) {
-		popular_cars.innerHTML += 
-		`<div class="flex-child polaroid" id=${result.carId}>
-			<a>
-				<img class="img" src=${result.imgUrl} alt="" onclick="openCarPage(${result.carId})"/>
-			</a>
-			<div class="flex-container">
-				<div class="flex-child green"> ${result.capacity} </div>
-				<div class="flex-child green"> ${result.transmissionType} </div>
-				<div class="flex-child green"> ${result.price} </div>
-				<div class="flex-child green">
-					<i class="bi-heart" onclick="toggleIcon(this)"></i>
-				</div>
-			</div>
-		</div>`
-	})
+	var apigClient = apigClientFactory.newClient();
+
+	apigClient.popularGet(obj, {}, {})
+    	.then(function(results) {
+    		console.log("success");
+    		console.log(results);
+    		output = results['data'].slice(0,4);
+    		output.forEach(function myFunction(result) {
+
+					let x = 25*(count-4);
+					popular_cars.style.width = x+"%";
+					popular_cars.innerHTML += 
+						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+							<a>
+								<img class="img" src=${result['carurl']} alt="" />
+							</a>
+							<div class="flex-container">
+								<div class="flex-child green"> ${result['doors']} </div>
+								<div class="flex-child green"> ${result['transmission_type']} </div>
+								<div class="flex-child green"> ${result['msrp']} </div>
+								<div class="flex-child green">
+									<i class="bi-heart" onclick="toggleIcon(this)"></i>
+								</div>
+							</div>
+						</div>`
+				count++;	
+			})
+
+    	}).catch(function(result){
+    		console.log("failed")
+    		console.log(result);
+    	});
 }
 
 function loadCarPage() {
