@@ -217,7 +217,7 @@ apigClientFactory.newClient = function (config) {
         var recommendationGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/recommendation').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            headers: apiGateway.core.utils.parseParametersToObject(params, ['Authorization']),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
