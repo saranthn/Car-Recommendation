@@ -75,6 +75,7 @@ apiGateway.core.simpleHttpClientFactory.newClient = function (config) {
             headers: headers,
             data: body
         };
+        console.log(simpleHttpRequest);
         return axios(simpleHttpRequest);
     };
     return simpleHttpClient;
