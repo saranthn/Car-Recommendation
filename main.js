@@ -1,5 +1,5 @@
 // JavaScript
-let token="x";
+var token="x";
 
 
 function loadHomePage() {
