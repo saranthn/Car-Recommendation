@@ -7,9 +7,13 @@ function loadHomePage() {
 	const datalist = document.getElementById('make');
 	const url = new URL(window.location.href);
 	console.log(url);
-	let a = url['hash'].split('=')[1];
-	token = a.split('&')[0];
-	sessionStorage.setItem("token", token);
+	try {
+		let a = url['hash'].split('=')[1];
+		token = a.split('&')[0];
+		sessionStorage.setItem("token", token);
+	} catch (error) {
+		let token = sessionStorage.getItem("token", token);
+	}
 	console.log(token);
 
 	// Loop through the car list
