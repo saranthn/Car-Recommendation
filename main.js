@@ -67,7 +67,7 @@ function loadRecommendations() {
 					recommendation_results.innerHTML += 
 						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 							<a>
-								<img class="img" src=${result['carurl']} alt="" />
+								<img src=${result['carurl']} width="270" height="150">
 							</a>
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
@@ -257,7 +257,7 @@ function loadSearchResults() {
 					search_results_row3.innerHTML += 
 						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 							<a>
-								<img class="img" src=${result['carurl']} alt="" />
+								<img src=${result['carurl']} width="270" height="150">
 							</a>
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
@@ -273,7 +273,7 @@ function loadSearchResults() {
 					search_results_row2.innerHTML += 
 						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 							<a>
-								<img class="img" src=${result['carurl']} alt="" />
+								<img src=${result['carurl']} width="270" height="150">
 							</a>
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
@@ -289,7 +289,7 @@ function loadSearchResults() {
 					search_results_row1.innerHTML += 
 						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 							<a>
-								<img class="img" src=${result['carurl']} alt="" />
+								<img src=${result['carurl']} width="270" height="150">
 							</a>
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
@@ -494,7 +494,7 @@ function loadWishlist() {
 				search_results_row3.innerHTML += 
 					`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 						<a>
-							<img class="img" src=${result['carurl']} alt="" />
+							<img src=${result['carurl']} width="270" height="150">
 						</a>
 						<div class="flex-container">
 							<div class="flex-child green"> ${result['make']} </div>
@@ -510,7 +510,7 @@ function loadWishlist() {
 				search_results_row2.innerHTML += 
 					`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 						<a>
-							<img class="img" src=${result['carurl']} alt="" />
+							<img src=${result['carurl']} width="270" height="150">
 						</a>
 						<div class="flex-container">
 							<div class="flex-child green"> ${result['make']} </div>
@@ -526,7 +526,7 @@ function loadWishlist() {
 				search_results_row1.innerHTML += 
 					`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 						<a>
-							<img class="img" src=${result['carurl']} alt="" />
+							<img src=${result['carurl']} width="270" height="150">
 						</a>
 						<div class="flex-container">
 							<div class="flex-child green"> ${result['make']} </div>
