@@ -63,6 +63,10 @@
  .flex-container {
      display: flex;
 }
+.flex-container-1 {
+    display: flex;
+    width: 90%;
+}
  .flex-child {
      flex: 1;
      padding-right: 10px;
