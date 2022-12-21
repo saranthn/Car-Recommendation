@@ -1,6 +1,6 @@
 // JavaScript
 // var token = "eyJraWQiOiJvT0g3ZmYyXC9NZVVqc2FqN3MzN291eWQ3QkVTbGU3YXhPVDZWN21uTGpqYz0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoidWVoSlhKMlBOUGZpV3ZfVm5jejNDZyIsInN1YiI6ImJhOGQ3NjNlLTkyM2UtNDUzYi05YTVlLTI1ZDc5ZTQ3NTkxNSIsImF1ZCI6IjNpYnFoMzBsMHU5aDVuM24zbjU2cTBkNnEwIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NzE1NzQ4NDQsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX0RpclVaWHQycyIsImNvZ25pdG86dXNlcm5hbWUiOiJ1c2VyMSIsImV4cCI6MTY3MTU3ODQ0NCwiaWF0IjoxNjcxNTc0ODQ0LCJqdGkiOiI5MmI5MzQxYS02ZDk4LTQ3ZWYtYjczMS1iYjRlMTE5NTExNWEifQ.v17DjmB2x6ZDxVUXdIog5JhgGks7Lfv1JlB8biYbJN67MNsPq_r9f5ZLxSuhhf9w_fUQhPnnjfaXXV7SJbPUy0-m7hVZ5XcbBMBBQ-nieB4-2H2aex7-_wcfDBWgWoubceUYJKuBprOTQGADkqzOwolsP_JFnfqcbffHzxPVsQ-NcGr710nIn53jeoEO9ajvqPVe7CkV4zdOcZyjHiIhEqMu8W3dOnF3C6KKz_fcru04-Vvgqc4Zewei1dt2ZtPmqfyN0O0gST9m6B7XOQnsqT_qLi3V1vTeMXqMUDZqJFR9XW3415rSCKO15vBKGBj-2dtnVWiuHiKrzanMuW5Fcg"
-function loadHomePage() {
+function loadHomePage(flag=0) {
 	const list = "BMW, Audi, FIAT, Mercedes-Benz, Chrysler, Nissan, Volvo, Mazda, Mitsubishi, Ferrari, Alfa Romeo, Toyota, McLaren, Maybach, Pontiac, Porsche, Saab, GMC, Hyundai, Plymouth, Honda, Oldsmobile, Suzuki, Ford, Cadillac, Kia, Bentley, Chevrolet, Dodge, Lamborghini, Lincoln, Subaru, Volkswagen, Spyker, Buick, Acura, Rolls-Royce, Maserati, Lexus, Aston Martin, Land Rover, Lotus, Infiniti, Scion, Genesis, HUMMER, Tesla, Bugatti";
 	const carList = list.split(', ');
 
@@ -45,6 +45,11 @@ function loadHomePage() {
 
 	loadRecommendations()
 	loadPopularCars()
+
+	if (flag == 1) {
+		let errormsg = document.getElementById("search-error");
+			errormsg.innerHTML = "Please select atleast one field";
+	}
 }
 
 function loadRecommendations() {
@@ -251,6 +256,10 @@ function loadSearchResults() {
 	  list.push('model');
 	}
 	console.log(obj);
+
+	if (list.length == 0) {
+		loadHomePage(1);
+	}
 
 	// GET request to search cars based on given parameters
 

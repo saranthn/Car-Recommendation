@@ -149,4 +149,7 @@ input.larger
     width: 10px;
     height: 10px;
 }
- 
+#search-error {
+    color: red;
+    font-size: 14px;
+}
