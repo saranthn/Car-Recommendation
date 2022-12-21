@@ -226,7 +226,6 @@ function loadSearchResults() {
 
 	const make = params.get("make") ?? "";
 	const price = params.get("price") ?? "";
-	const style = params.get("style") ?? "";
 	const transmissionType = params.get("transmissionType") ?? "";
 	const model = params.get("model") ?? "";
 
@@ -241,11 +240,6 @@ function loadSearchResults() {
 	if (price !== "") {
 	  obj.price = price;
 	  list.push('price');
-	}
-
-	if (style !== "") {
-	  obj.style = style;
-	  // list.push('style');
 	}
 
 	if (transmissionType !== "") {
@@ -342,11 +336,10 @@ function search() {
 	const make = document.getElementById('makeInput').value;
 	const model = document.getElementById('modelInput').value;
 	const price = document.getElementById('price').value;
-	const style = document.getElementById('styleInput').value;
 	const transmissionType = document.getElementById('transmission').value;
 
 	console.log("Make: ", make);
-	if (make == "" && model == "" && price == "" && style == "" && transmissionType == "") {
+	if (make == "" && model == "" && price == "" && transmissionType == "") {
 		console.log("No search");
 		loadHomePage(1);
 		return null;
@@ -366,14 +359,7 @@ function search() {
 		url+=`price=${price}`
 		count++;
 	}
-	if(style !== null && style !== "") {
-		if (count>0)
-		{
-			url+= `&`;
-		}
-		url+=`style=${style}`;
-		count++;
-	}
+
 	if(transmissionType !== null && transmissionType !== "") {
 		if (count>0)
 		{
