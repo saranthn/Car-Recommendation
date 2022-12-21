@@ -72,10 +72,7 @@ function loadRecommendations() {
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
 								<div class="flex-child green"> ${result['model']} </div>
-								<div class="flex-child green"> ${result['msrp']} </div>
-								<div class="flex-child green">
-									<i class="bi-heart" onclick="toggleIcon(this, ${result['carid']})"></i>
-								</div>
+								<div class="flex-child green"> $${result['msrp']} </div>
 							</div>
 						</div>`
 				count++;	
@@ -120,10 +117,7 @@ function loadPopularCars() {
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
 								<div class="flex-child green"> ${result['model']} </div>
-								<div class="flex-child green"> ${result['msrp']} </div>
-								<div class="flex-child green">
-									<i class="bi-heart" onclick="toggleIcon(this)"></i>
-								</div>
+								<div class="flex-child green"> $${result['msrp']} </div>
 							</div>
 						</div>`
 				count++;	
@@ -267,10 +261,7 @@ function loadSearchResults() {
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
 								<div class="flex-child green"> ${result['model']} </div>
-								<div class="flex-child green"> ${result['msrp']} </div>
-								<div class="flex-child green">
-									<i class="bi-heart" onclick="toggleIcon(this)"></i>
-								</div>
+								<div class="flex-child green"> $${result['msrp']} </div>
 							</div>
 						</div>`
 				}
@@ -286,10 +277,7 @@ function loadSearchResults() {
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
 								<div class="flex-child green"> ${result['model']} </div>
-								<div class="flex-child green"> ${result['msrp']} </div>
-								<div class="flex-child green">
-									<i class="bi-heart" onclick="toggleIcon(this)"></i>
-								</div>
+								<div class="flex-child green"> $${result['msrp']} </div>
 							</div>
 						</div>`
 				}
@@ -305,10 +293,7 @@ function loadSearchResults() {
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
 								<div class="flex-child green"> ${result['model']} </div>
-								<div class="flex-child green"> ${result['msrp']} </div>
-								<div class="flex-child green">
-									<i class="bi-heart" onclick="toggleIcon(this)"></i>
-								</div>
+								<div class="flex-child green"> $${result['msrp']} </div>
 							</div>
 						</div>`
 				}
@@ -472,7 +457,6 @@ function toggleIcon(x, carid) {
 	x.classList.toggle("bi-heart");
 
 	var apigClient = apigClientFactory.newClient();
-	console.log("In toggle icon")
 	console.log("carID: ", carid.split("/")[3].split(".")[0])
 	let token = sessionStorage.getItem("token");
 	apigClient.likeGet({'carID': carid.split("/")[3].split(".")[0], 'Authorization':  token})
@@ -514,10 +498,7 @@ function loadWishlist() {
 						<div class="flex-container">
 							<div class="flex-child green"> ${result['make']} </div>
 							<div class="flex-child green"> ${result['model']} </div>
-							<div class="flex-child green"> ${result['msrp']} </div>
-							<div class="flex-child green">
-								<i class="bi-heart" onclick="toggleIcon(this)"></i>
-							</div>
+							<div class="flex-child green"> $${result['msrp']} </div>
 						</div>
 					</div>`
 			}
@@ -533,10 +514,7 @@ function loadWishlist() {
 						<div class="flex-container">
 							<div class="flex-child green"> ${result['make']} </div>
 							<div class="flex-child green"> ${result['model']} </div>
-							<div class="flex-child green"> ${result['msrp']} </div>
-							<div class="flex-child green">
-								<i class="bi-heart" onclick="toggleIcon(this)"></i>
-							</div>
+							<div class="flex-child green"> $${result['msrp']} </div>
 						</div>
 					</div>`
 			}
@@ -552,10 +530,7 @@ function loadWishlist() {
 						<div class="flex-container">
 							<div class="flex-child green"> ${result['make']} </div>
 							<div class="flex-child green"> ${result['model']} </div>
-							<div class="flex-child green"> ${result['msrp']} </div>
-							<div class="flex-child green">
-								<i class="bi-heart" onclick="toggleIcon(this)"></i>
-							</div>
+							<div class="flex-child green"> $${result['msrp']} </div>
 						</div>
 					</div>`
 			}
