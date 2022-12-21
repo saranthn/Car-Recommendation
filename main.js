@@ -156,7 +156,7 @@ function loadCarPage() {
 			      <div>
 			        <div class="flex-container top-2">
 			          <div class="flex-child polaroid-1">
-			          <img class="img" src=${result['data']['carurl']} alt="" />
+			          <img src=${result['data']['carurl']} width="800" height="400">
 			            <div class="flex-container">
 			              <div class="flex-child green"> ${result['data']['make']} </div>
 			              <div class="flex-child green"> ${result['data']['model']} </div>
