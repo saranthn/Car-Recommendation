@@ -247,12 +247,13 @@ function loadSearchResults() {
 	apigClient.searchGet(obj, {}, {}, list)
     	.then(function(results) {
     		console.log("success");
-    		console.log(results);
+    		console.log("results length: ", results.length);
+			let searchheader = document.getElementById("search-header");
 			if (results.length > 0) {
-				$("#search-header").append("Here are your search results");
+				searchheader.innerHTML = "Here are your search results";
 			}
 			else {
-				$("#search-header").append("No Results Found");
+				searchheader.innerHTML = "No Results Found!";
 			}
     		output = results['data'].slice(0,10);
     		output.forEach(function myFunction(result) {
