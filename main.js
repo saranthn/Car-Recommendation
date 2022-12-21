@@ -59,6 +59,13 @@ function loadRecommendations() {
     	.then(function(results) {
     		console.log("success");
     		console.log(results);
+			let recheader = document.getElementById("recommendations-header");
+			if (results['data'].length == 0) {
+				recheader.innerHTML = "Try liking some cars first to get recommendations!";
+			}
+			else {
+				recheader.innerHTML = "Recommendations";
+			}
     		output = results['data'].slice(0,4);
     		output.forEach(function myFunction(result) {
 
