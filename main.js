@@ -347,6 +347,7 @@ function search() {
 	if (make == "" && model == "" && price == "" && style == "" && transmissionType == "") {
 		console.log("No search");
 		loadHomePage(1);
+		return null;
 	}
 
 	let url = `search.html?`;
