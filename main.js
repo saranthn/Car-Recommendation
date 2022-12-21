@@ -43,8 +43,10 @@ function loadHomePage(flag=0) {
 	  styleDatalist.appendChild(opt);
 	});
 
-	loadRecommendations()
-	loadPopularCars()
+	if (flag == 0) {
+		loadRecommendations()
+		loadPopularCars()
+	}
 
 	if (flag == 1) {
 		let errormsg = document.getElementById("search-error");
