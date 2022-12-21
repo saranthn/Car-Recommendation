@@ -28,20 +28,20 @@ function loadHomePage(flag=0) {
 	  datalist.appendChild(option);
 	});
 
-	const style = "Coupe, Convertible, Sedan, Wagon, 4dr Hatchback, 2dr Hatchback, 4dr SUV, Passenger Minivan, Cargo Minivan, Crew Cab Pickup, Regular Cab Pickup, Extended Cab Pickup, 2dr SUV, Cargo Van, Passenger Van, Convertible SUV";
-	const styleList = style.split(', ');
-	const styleDatalist = document.getElementById('style');
+	// const style = "Coupe, Convertible, Sedan, Wagon, 4dr Hatchback, 2dr Hatchback, 4dr SUV, Passenger Minivan, Cargo Minivan, Crew Cab Pickup, Regular Cab Pickup, Extended Cab Pickup, 2dr SUV, Cargo Van, Passenger Van, Convertible SUV";
+	// const styleList = style.split(', ');
+	// const styleDatalist = document.getElementById('style');
 
-	// Loop through the style list
-	styleList.forEach(s => {
-	  // Create an option element for each style
-	  const opt = document.createElement('option');
-	  opt.setAttribute('value', s);
-	  opt.innerHTML = s;
+	// // Loop through the style list
+	// styleList.forEach(s => {
+	//   // Create an option element for each style
+	//   const opt = document.createElement('option');
+	//   opt.setAttribute('value', s);
+	//   opt.innerHTML = s;
 
-	  // Add the option element to the select element
-	  styleDatalist.appendChild(opt);
-	});
+	//   // Add the option element to the select element
+	//   styleDatalist.appendChild(opt);
+	// });
 
 	if (flag == 0) {
 		loadRecommendations()
