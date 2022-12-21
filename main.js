@@ -247,9 +247,9 @@ function loadSearchResults() {
 	apigClient.searchGet(obj, {}, {}, list)
     	.then(function(results) {
     		console.log("success");
-    		console.log("results length: ", results.length);
+    		console.log("results length: ", results['data'].length);
 			let searchheader = document.getElementById("search-header");
-			if (results.length > 0) {
+			if (results['data'].length > 0) {
 				searchheader.innerHTML = "Here are your search results";
 			}
 			else {
