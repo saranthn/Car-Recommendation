@@ -91,6 +91,15 @@ function loadRecommendations() {
     	});
 }
 
+function toTitleCase(str) {
+	return str.replace(
+	  /\w\S*/g,
+	  function(txt) {
+		return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+	  }
+	);
+  }
+
 function openCarPage(carId) {
 	// Define the URL of the webpage to open, including the query parameters
 	const url = `car.html?carId=${carId}`;
@@ -185,7 +194,7 @@ function loadCarPage() {
 						<div class="flex-columns-child"> <b>Cylinders:</b> ${result['data']['engine_cylinders']} </div>
 			            <div class="flex-columns-child"> <b>Wheel Drive:</b> ${result['data']['driven_wheels']} </div>
 			            <div class="flex-columns-child"> <b>Horsepower:</b> ${result['data']['engine_hp']} </div>
-			            <div class="flex-columns-child"> <b>Transmission:</b> ${result['data']['transmission_type']} </div>
+			            <div class="flex-columns-child"> <b>Transmission:</b> ${toTitleCase(result['data']['transmission_type'])} </div>
 						<br>
 						<br>
 			            <div class="flex-columns-child"> <b>Fuel Type:</b> ${result['data']['fuel_type']} </div>
