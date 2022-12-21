@@ -113,7 +113,7 @@ function loadPopularCars() {
 					popular_cars.innerHTML += 
 						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 							<a>
-								<img class="img" src=${result['carurl']} alt="" width=270/>
+								<img class="img" src=${result['carurl']} alt="" width="270">
 							</a>
 							<div class="flex-container">
 								<div class="flex-child green"> ${result['make']} </div>
