@@ -65,7 +65,7 @@
 }
 .flex-container-1 {
     display: flex;
-    width: 90%;
+    flex-basis: 90%;
 }
  .flex-child {
      flex: 1;
