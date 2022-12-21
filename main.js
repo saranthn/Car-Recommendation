@@ -258,6 +258,7 @@ function loadSearchResults() {
 	console.log(obj);
 
 	if (list.length == 0) {
+		console.log("No search");
 		loadHomePage(1);
 	}
 
