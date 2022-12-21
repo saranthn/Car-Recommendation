@@ -166,7 +166,7 @@ function loadCarPage() {
 			              </div>
 			            </div>
 			          </div>
-			          <div class="flex-child wrapper">
+			          <div class="flex-child-desc wrapper">
 					  	<br>
 						<br>
 			            <div class="flex-columns-child"> <b>Make:</b> ${result['data']['make']} </div>

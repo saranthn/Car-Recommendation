@@ -84,6 +84,15 @@
      margin-right: 5px;
      text-align: center;
 }
+.flex-child-desc {
+    flex: 1;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
  .carsmallbox{
      margin-right: 20px;
 }
