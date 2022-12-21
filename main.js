@@ -343,6 +343,7 @@ function search() {
 	const style = document.getElementById('styleInput').value;
 	const transmissionType = document.getElementById('transmission').value;
 
+	console.log("Make: ", make);
 	if (make == null && model == null && price == null && style == null && transmissionType == null) {
 		console.log("No search");
 		loadHomePage(1);
