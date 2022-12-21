@@ -185,6 +185,7 @@ function loadCarPage() {
 						<div class="flex-columns-child"> <b>Cylinders:</b> ${result['data']['engine_cylinders']} </div>
 			            <div class="flex-columns-child"> <b>Wheel Drive:</b> ${result['data']['driven_wheels']} </div>
 			            <div class="flex-columns-child"> <b>Horsepower:</b> ${result['data']['engine_hp']} </div>
+			            <div class="flex-columns-child"> <b>Transmission:</b> ${result['data']['transmission_type']} </div>
 						<br>
 						<br>
 			            <div class="flex-columns-child"> <b>Fuel Type:</b> ${result['data']['fuel_type']} </div>
