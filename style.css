@@ -14,6 +14,11 @@
      margin-right: 20px;
      margin-left: 20px;
 }
+.top-1 {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-left: 20px;
+}
 /* NAVBAR STYLING STARTS */
  .navbar {
      display: flex;
@@ -64,7 +69,6 @@
      display: flex;
 }
 .flex-container-1 {
-    width: 90%;
     display: flex;
 }
  .flex-child {
