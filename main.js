@@ -344,7 +344,7 @@ function search() {
 	const transmissionType = document.getElementById('transmission').value;
 
 	console.log("Make: ", make);
-	if (make == null && model == null && price == null && style == null && transmissionType == null) {
+	if (make == "" && model == "" && price == "" && style == "" && transmissionType == "") {
 		console.log("No search");
 		loadHomePage(1);
 	}
