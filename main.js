@@ -492,6 +492,13 @@ function loadWishlist() {
 	.then(function(results) {
 		console.log("success");
 		console.log(results);
+		let wishheader = document.getElementById("wishlist-header");
+		if (results['data'].length > 0) {
+			wishheader.innerHTML = "Here are your liked cars!";
+		}
+		else {
+			wishheader.innerHTML = "You haven't liked any cars yet!";
+		}
 		output = results['data'].slice(0,10);
 		output.forEach(function myFunction(result) {
 			if (count>8)
