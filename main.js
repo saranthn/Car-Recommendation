@@ -257,11 +257,6 @@ function loadSearchResults() {
 	}
 	console.log(obj);
 
-	if (list.length == 0) {
-		console.log("No search");
-		loadHomePage(1);
-	}
-
 	// GET request to search cars based on given parameters
 
 	let search_results_row1 = document.getElementById("result-row1");
@@ -347,6 +342,11 @@ function search() {
 	const price = document.getElementById('price').value;
 	const style = document.getElementById('styleInput').value;
 	const transmissionType = document.getElementById('transmission').value;
+
+	if (make == null && model == null && price == null && style == null && transmissionType == null) {
+		console.log("No search");
+		loadHomePage(1);
+	}
 
 	let url = `search.html?`;
 	let count = 0;
