@@ -64,11 +64,11 @@
      display: flex;
 }
  .flex-child {
-     /* flex: 1; */
+     flex: 1;
      margin-right: 10px;
-     margin-left: 10px;
+     padding-left: 10px;
      margin-bottom: 10px;
-     margin-top: 10px;
+     padding-top: 10px;
      text-align: center;
 }
  .carsmallbox{
