@@ -111,7 +111,7 @@ function loadPopularCars() {
 					let x = 25*(count-4);
 					popular_cars.style.width = x+"%";
 					popular_cars.innerHTML += 
-						`<div class="carsmallbox polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
+						`<div class="flex-child polaroid" id=${result['carid']} onclick="openCarPage(this.id)">
 							<a>
 								<img src=${result['carurl']} width="270" height="150">
 							</a>
