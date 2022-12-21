@@ -19,6 +19,12 @@
     margin-right: 40px;
     /* margin-left: 20px; */
 }
+.top-2 {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-bottom: -20px;
+}
 /* NAVBAR STYLING STARTS */
  .navbar {
      display: flex;
