@@ -23,7 +23,6 @@
     margin-top: 20px;
     margin-right: 20px;
     margin-left: 20px;
-    padding-bottom: -20px;
 }
 /* NAVBAR STYLING STARTS */
  .navbar {
@@ -105,6 +104,10 @@
  .polaroid {
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      text-align: center;
+}
+.polaroid-1 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
 }
  /* .flex-child:first-child {
      margin-left: 20px;
